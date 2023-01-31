@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="aps.microservice.miniautorizador.service.TransacaoServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-01-31T15:18:03" hostname="APs-MacBook-Pro.local" time="0.132">
+  <properties/>
+  <testcase name="testCreateTransacao_whenNumeroCartaoInexistente_throwsException()" classname="aps.microservice.miniautorizador.service.TransacaoServiceTest" time="0.106"/>
+  <testcase name="testCreateTransacao()" classname="aps.microservice.miniautorizador.service.TransacaoServiceTest" time="0.005"/>
+  <testcase name="testCreateTransacaoSuccessWithConcurrency()" classname="aps.microservice.miniautorizador.service.TransacaoServiceTest" time="0.01"/>
+  <testcase name="testCreateTransacao_whenSenhaInvalida_throwsException()" classname="aps.microservice.miniautorizador.service.TransacaoServiceTest" time="0.002"/>
+  <testcase name="testCreateTransacao_whenSaldoInsuficiente_throwsException()" classname="aps.microservice.miniautorizador.service.TransacaoServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Exception in thread "pool-1-thread-3" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:37)
+	at aps.microservice.miniautorizador.service.TransacaoServiceTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(TransacaoServiceTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-8" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:37)
+	at aps.microservice.miniautorizador.service.TransacaoServiceTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(TransacaoServiceTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-1" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:37)
+	at aps.microservice.miniautorizador.service.TransacaoServiceTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(TransacaoServiceTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-6" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:37)
+	at aps.microservice.miniautorizador.service.TransacaoServiceTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(TransacaoServiceTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-7" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:37)
+	at aps.microservice.miniautorizador.service.TransacaoServiceTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(TransacaoServiceTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+]]></system-err>
+</testsuite>

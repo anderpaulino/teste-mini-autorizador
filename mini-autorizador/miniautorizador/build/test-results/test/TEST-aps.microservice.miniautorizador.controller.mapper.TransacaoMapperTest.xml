@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="aps.microservice.miniautorizador.controller.mapper.TransacaoMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-31T15:18:02" hostname="APs-MacBook-Pro.local" time="0.003">
+  <properties/>
+  <testcase name="testToEntity()" classname="aps.microservice.miniautorizador.controller.mapper.TransacaoMapperTest" time="0.001"/>
+  <testcase name="testToDto()" classname="aps.microservice.miniautorizador.controller.mapper.TransacaoMapperTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

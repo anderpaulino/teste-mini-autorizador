@@ -21,10 +21,10 @@ public class CartaoRepositoryTest {
 
   @Test
   public void whenFindByNumeroCartao_thenReturnCartao() {
-    Cartao cartao = new Cartao(null, "123456789", "secret", BigDecimal.valueOf(500.0));
+    Cartao cartao = new Cartao(null, "23467745645676005456363456345", "secret", BigDecimal.valueOf(500.0));
     cartaoRepository.save(cartao);
 
-    Cartao found = cartaoRepository.findByNumeroCartao("123456789").get();
+    Cartao found = cartaoRepository.findByNumeroCartao("23467745645676005456363456345").get();
     assertThat(found.getNumeroCartao()).isEqualTo(cartao.getNumeroCartao());
   }
 

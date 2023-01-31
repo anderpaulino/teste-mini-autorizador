@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="aps.microservice.miniautorizador.controller.mapper.CartaoMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-31T16:16:29" hostname="APs-MacBook-Pro.local" time="0.02">
+<testsuite name="aps.microservice.miniautorizador.controller.mapper.CartaoMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-31T16:33:10" hostname="APs-MacBook-Pro.local" time="0.007">
   <properties/>
-  <testcase name="when_converting_Cartao_to_CartaoDto_then_return_correct_result()" classname="aps.microservice.miniautorizador.controller.mapper.CartaoMapperTest" time="0.008"/>
-  <testcase name="when_converting_CartaoDto_to_Cartao_then_return_correct_result()" classname="aps.microservice.miniautorizador.controller.mapper.CartaoMapperTest" time="0.009"/>
+  <testcase name="when_converting_Cartao_to_CartaoDto_then_return_correct_result()" classname="aps.microservice.miniautorizador.controller.mapper.CartaoMapperTest" time="0.005"/>
+  <testcase name="when_converting_CartaoDto_to_Cartao_then_return_correct_result()" classname="aps.microservice.miniautorizador.controller.mapper.CartaoMapperTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

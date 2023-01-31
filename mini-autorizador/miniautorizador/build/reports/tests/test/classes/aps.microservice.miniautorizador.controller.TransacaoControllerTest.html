@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.154s</div>
+<div class="counter">0.239s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">createTransacao()</td>
-<td class="success">0.034s</td>
+<td class="success">0.058s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">createTransacao_whenCartaoInexistente_throwsException()</td>
-<td class="success">0.044s</td>
+<td class="success">0.071s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">createTransacao_whenSaldoInsuficiente_throwsException()</td>
-<td class="success">0.043s</td>
+<td class="success">0.061s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">createTransacao_whenSenhaInvalida_throwsException()</td>
-<td class="success">0.033s</td>
+<td class="success">0.049s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,18 +102,18 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-01-31T11:18:02.710-04:00  INFO 14166 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [aps.microservice.miniautorizador.controller.TransacaoControllerTest]: TransacaoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-01-31T11:18:02.717-04:00  INFO 14166 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration aps.microservice.miniautorizador.MiniautorizadorApplication for test class aps.microservice.miniautorizador.controller.TransacaoControllerTest
-2023-01-31T11:18:02.792-04:00  INFO 14166 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
-2023-01-31T11:18:02.793-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-31T11:18:02.793-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-01-31T11:18:02.830-04:00  INFO 14166 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
-2023-01-31T11:18:02.830-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-31T11:18:02.831-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-01-31T11:18:02.842-04:00  WARN 14166 --- [    Test worker] a.m.m.controller.TransacaoController     : Transação não realizada!
+<pre>2023-01-31T12:16:28.784-04:00  INFO 18046 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [aps.microservice.miniautorizador.controller.TransacaoControllerTest]: TransacaoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-01-31T12:16:28.802-04:00  INFO 18046 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration aps.microservice.miniautorizador.MiniautorizadorApplication for test class aps.microservice.miniautorizador.controller.TransacaoControllerTest
+2023-01-31T12:16:28.907-04:00  INFO 18046 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2023-01-31T12:16:28.908-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-31T12:16:28.908-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-01-31T12:16:28.971-04:00  INFO 18046 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2023-01-31T12:16:28.971-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-31T12:16:28.971-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-01-31T12:16:28.981-04:00  WARN 18046 --- [    Test worker] a.m.m.controller.TransacaoController     : Transação não realizada!
 
 aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
-	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:27) ~[main/:na]
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:28) ~[main/:na]
 	at aps.microservice.miniautorizador.controller.TransacaoController.createTransacao(TransacaoController.java:32) ~[main/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -223,13 +223,13 @@ aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_IN
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
 
-2023-01-31T11:18:02.881-04:00  INFO 14166 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
-2023-01-31T11:18:02.881-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-31T11:18:02.882-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-01-31T11:18:02.887-04:00  WARN 14166 --- [    Test worker] a.m.m.controller.TransacaoController     : Transação não realizada!
+2023-01-31T12:16:29.035-04:00  INFO 18046 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2023-01-31T12:16:29.036-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-31T12:16:29.036-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-01-31T12:16:29.046-04:00  WARN 18046 --- [    Test worker] a.m.m.controller.TransacaoController     : Transação não realizada!
 
 aps.microservice.miniautorizador.exception.SenhaInvalidaException: SENHA_INVALIDA
-	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:27) ~[main/:na]
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:28) ~[main/:na]
 	at aps.microservice.miniautorizador.controller.TransacaoController.createTransacao(TransacaoController.java:32) ~[main/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -339,13 +339,13 @@ aps.microservice.miniautorizador.exception.SenhaInvalidaException: SENHA_INVALID
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
 
-2023-01-31T11:18:02.925-04:00  INFO 14166 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
-2023-01-31T11:18:02.926-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-31T11:18:02.927-04:00  INFO 14166 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-01-31T11:18:02.935-04:00  WARN 14166 --- [    Test worker] a.m.m.controller.TransacaoController     : Transação não realizada!
+2023-01-31T12:16:29.098-04:00  INFO 18046 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2023-01-31T12:16:29.101-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-31T12:16:29.101-04:00  INFO 18046 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-01-31T12:16:29.112-04:00  WARN 18046 --- [    Test worker] a.m.m.controller.TransacaoController     : Transação não realizada!
 
 aps.microservice.miniautorizador.exception.CartaoInexistenteException: CARTAO_INEXISTENTE
-	at aps.microservice.miniautorizador.service.TransacaoService.createTransacao(TransacaoService.java:27) ~[main/:na]
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:28) ~[main/:na]
 	at aps.microservice.miniautorizador.controller.TransacaoController.createTransacao(TransacaoController.java:32) ~[main/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
@@ -466,7 +466,7 @@ aps.microservice.miniautorizador.exception.CartaoInexistenteException: CARTAO_IN
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6</a> at Jan 31, 2023, 11:18:04 AM</p>
+<a href="http://www.gradle.org">Gradle 7.6</a> at Jan 31, 2023, 12:16:30 PM</p>
 </div>
 </div>
 </body>

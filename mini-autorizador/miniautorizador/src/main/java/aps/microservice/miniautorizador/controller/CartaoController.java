@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import aps.microservice.miniautorizador.controller.dto.CartaoDto;
 import aps.microservice.miniautorizador.controller.mapper.CartaoMapper;
-import aps.microservice.miniautorizador.service.CartaoService;
+import aps.microservice.miniautorizador.usecase.cartao.CreateCartaoUseCase;
+import aps.microservice.miniautorizador.usecase.cartao.GetCartaoUseCase;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -26,13 +27,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CartaoController {
 
-    CartaoService cartaoService;
+    CreateCartaoUseCase createCartaoUseCase;
+    GetCartaoUseCase getCartaoUseCase;
     CartaoMapper cartaoMapper;
 
     @PostMapping
     public ResponseEntity<CartaoDto> createCartao(@RequestBody CartaoDto cartao) {
       try {  
-        return ResponseEntity.status(HttpStatus.CREATED).body(cartaoMapper.toDto(cartaoService.createCartao(cartaoMapper.toEntity(cartao))));
+        return ResponseEntity.status(HttpStatus.CREATED).body(cartaoMapper.toDto(createCartaoUseCase.execute(cartaoMapper.toEntity(cartao))));
       } catch (Exception e) {
 
         log.error("Erro ao tentar salvar o cartão número {}", cartao.getNumeroCartao(), e);
@@ -42,7 +44,7 @@ public class CartaoController {
 
     @GetMapping("/{numeroCartao}")
     public ResponseEntity<BigDecimal> getSaldo(@PathVariable String numeroCartao) {
-      return cartaoService.getSaldo(numeroCartao)
+      return getCartaoUseCase.execute(numeroCartao)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
     }

@@ -28,14 +28,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import aps.microservice.miniautorizador.controller.dto.CartaoDto;
 import aps.microservice.miniautorizador.controller.mapper.CartaoMapper;
 import aps.microservice.miniautorizador.exception.CartaoJaExisteException;
-import aps.microservice.miniautorizador.service.CartaoService;
+import aps.microservice.miniautorizador.usecase.cartao.CreateCartaoUseCase;
+import aps.microservice.miniautorizador.usecase.cartao.GetCartaoUseCase;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class CartaoControllerTest {
 
   @Mock
-  CartaoService cartaoService;
+  CreateCartaoUseCase createCartaoUseCase;
+
+  @Mock
+  GetCartaoUseCase getCartaoUseCase;
   
   CartaoMapper cartaoMapper =  Mappers.getMapper(CartaoMapper.class);;
   
@@ -47,7 +51,7 @@ class CartaoControllerTest {
 
   @BeforeEach
   void setUp() {
-    cartaoController = new CartaoController(cartaoService, cartaoMapper);
+    cartaoController = new CartaoController(createCartaoUseCase, getCartaoUseCase, cartaoMapper);
     mockMvc = MockMvcBuilders.standaloneSetup(cartaoController).build();
   }
 
@@ -64,7 +68,7 @@ class CartaoControllerTest {
   void createCartao_whenNumeroCartaoAlreadyExists_throwsException() throws Exception {
     CartaoDto cartaoDto = CartaoDto.builder().numeroCartao("123456789").senha("123").build();    
 
-    when(cartaoService.createCartao(any())).thenThrow(new CartaoJaExisteException(""));
+    when(createCartaoUseCase.execute(any())).thenThrow(new CartaoJaExisteException(""));
 
     mockMvc.perform(post("/cartoes")
       .contentType(MediaType.APPLICATION_JSON)
@@ -75,7 +79,7 @@ class CartaoControllerTest {
   @Test
   void getSaldo() throws Exception {
 
-    when(cartaoService.getSaldo(any())).thenReturn(Optional.of(BigDecimal.ONE));
+    when(getCartaoUseCase.execute(any())).thenReturn(Optional.of(BigDecimal.ONE));
 
     mockMvc.perform(get("/cartoes/{numeroCartao}", "123456789"))
       .andExpect(status().isOk())
@@ -85,7 +89,7 @@ class CartaoControllerTest {
   @Test
   void getSaldo_whenNumeroCartaoDoesntExist() throws Exception {
 
-    when(cartaoService.getSaldo(any())).thenReturn(Optional.empty());
+    when(getCartaoUseCase.execute(any())).thenReturn(Optional.empty());
 
     mockMvc.perform(get("/cartoes/{numeroCartao}", "123456789"))
       .andExpect(status().is(HttpStatus.NOT_FOUND.value()));

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import aps.microservice.miniautorizador.controller.dto.TransacaoDto;
 import aps.microservice.miniautorizador.controller.mapper.TransacaoMapper;
-import aps.microservice.miniautorizador.service.TransacaoService;
+import aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -22,14 +22,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TransacaoController {
 
-    TransacaoService transacaoService;
+    ProcessTransacaoUseCase useCase;
     TransacaoMapper transacaoMapper;
 
     @PostMapping
     public ResponseEntity<String> createTransacao(@RequestBody TransacaoDto transacaoDto) {
 
         try {
-            transacaoService.createTransacao(transacaoMapper.toEntity(transacaoDto));
+            useCase.execute(transacaoMapper.toEntity(transacaoDto));
         } catch (Exception e) {
             log.warn("Transação não realizada!", transacaoDto.getNumeroCartao(), e);
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(e.getMessage());

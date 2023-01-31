@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-01-31T16:16:29" hostname="APs-MacBook-Pro.local" time="0.143">
+  <properties/>
+  <testcase name="testCreateTransacao_whenNumeroCartaoInexistente_throwsException()" classname="aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest" time="0.106"/>
+  <testcase name="testCreateTransacao()" classname="aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest" time="0.007"/>
+  <testcase name="testCreateTransacaoSuccessWithConcurrency()" classname="aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest" time="0.015"/>
+  <testcase name="testCreateTransacao_whenSenhaInvalida_throwsException()" classname="aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest" time="0.003"/>
+  <testcase name="testCreateTransacao_whenSaldoInsuficiente_throwsException()" classname="aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Exception in thread "pool-1-thread-8" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:38)
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(ProcessTransacaoUseCaseTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-7" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:38)
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(ProcessTransacaoUseCaseTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-1" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:38)
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(ProcessTransacaoUseCaseTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-5" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:38)
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(ProcessTransacaoUseCaseTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "pool-1-thread-6" aps.microservice.miniautorizador.exception.SaldoInsuficioenteException: SALDO_INSUFICIENTE
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase.execute(ProcessTransacaoUseCase.java:38)
+	at aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCaseTest.lambda$testCreateTransacaoSuccessWithConcurrency$3(ProcessTransacaoUseCaseTest.java:127)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+]]></system-err>
+</testsuite>

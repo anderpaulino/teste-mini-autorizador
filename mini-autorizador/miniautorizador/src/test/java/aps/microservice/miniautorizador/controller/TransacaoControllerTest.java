@@ -28,14 +28,14 @@ import aps.microservice.miniautorizador.controller.mapper.TransacaoMapper;
 import aps.microservice.miniautorizador.exception.CartaoInexistenteException;
 import aps.microservice.miniautorizador.exception.SaldoInsuficioenteException;
 import aps.microservice.miniautorizador.exception.SenhaInvalidaException;
-import aps.microservice.miniautorizador.service.TransacaoService;
+import aps.microservice.miniautorizador.usecase.transacao.ProcessTransacaoUseCase;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class TransacaoControllerTest {
 
   @Mock
-  TransacaoService transacaoService;
+  ProcessTransacaoUseCase useCase;
   
   TransacaoMapper transacaoMapper =  Mappers.getMapper(TransacaoMapper.class);;
   
@@ -47,7 +47,7 @@ class TransacaoControllerTest {
 
   @BeforeEach
   void setUp() {
-    transacaoController = new TransacaoController(transacaoService, transacaoMapper);
+    transacaoController = new TransacaoController(useCase, transacaoMapper);
     mockMvc = MockMvcBuilders.standaloneSetup(transacaoController).build();
   }
 
@@ -55,7 +55,7 @@ class TransacaoControllerTest {
   void createTransacao() throws Exception {
     TransacaoDto transacaoDto = TransacaoDto.builder().numeroCartao("123456789").senhaCartao("123456789").valor(BigDecimal.ONE).build();
 
-    when(transacaoService.createTransacao(any())).thenReturn(true);
+    when(useCase.execute(any())).thenReturn(true);
 
     mockMvc.perform(post("/transacoes")
       .contentType(MediaType.APPLICATION_JSON)
@@ -67,7 +67,7 @@ class TransacaoControllerTest {
   void createTransacao_whenCartaoInexistente_throwsException() throws Exception {
     CartaoDto cartaoDto = CartaoDto.builder().numeroCartao("123456789").senha("123").build();    
 
-    when(transacaoService.createTransacao(any())).thenThrow(new CartaoInexistenteException());
+    when(useCase.execute(any())).thenThrow(new CartaoInexistenteException());
     mockMvc.perform(post("/transacoes")
       .contentType(MediaType.APPLICATION_JSON)
       .content(objectMapper.writeValueAsString(cartaoDto)))
@@ -79,7 +79,7 @@ class TransacaoControllerTest {
   void createTransacao_whenSenhaInvalida_throwsException() throws Exception {
     CartaoDto cartaoDto = CartaoDto.builder().numeroCartao("123456789").senha("123").build();    
 
-    when(transacaoService.createTransacao(any())).thenThrow(new SenhaInvalidaException());
+    when(useCase.execute(any())).thenThrow(new SenhaInvalidaException());
     mockMvc.perform(post("/transacoes")
       .contentType(MediaType.APPLICATION_JSON)
       .content(objectMapper.writeValueAsString(cartaoDto)))
@@ -91,7 +91,7 @@ class TransacaoControllerTest {
   void createTransacao_whenSaldoInsuficiente_throwsException() throws Exception {
     CartaoDto cartaoDto = CartaoDto.builder().numeroCartao("123456789").senha("123").build();    
 
-    when(transacaoService.createTransacao(any())).thenThrow(new SaldoInsuficioenteException());
+    when(useCase.execute(any())).thenThrow(new SaldoInsuficioenteException());
     mockMvc.perform(post("/transacoes")
       .contentType(MediaType.APPLICATION_JSON)
       .content(objectMapper.writeValueAsString(cartaoDto)))
